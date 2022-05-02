@@ -17,8 +17,8 @@ public class MultiplicationTest {
     }
 
     @Test(dataProvider = "mult", description = "Successful multiplication test", priority = 1, invocationCount = 2, threadPoolSize = 2)
-    public void multiplicationTest(double a, double b) {
-        double expectedResult = a * b;
+    public void multiplicationTest(double a, double b, double expected) {
+        double expectedResult = expected;
         double actualResult = calculator.multiplication(a, b);
         Assert.assertEquals(actualResult, expectedResult, "Actual result doesn't match the expected one!");
     }
@@ -35,8 +35,8 @@ public class MultiplicationTest {
     @DataProvider(name = "mult")
     public Object[][] mult() {
         return new Object[][]{
-                {4.2, 5},
-                {-6, 2.5}};
+                {4.2, 5, 21},
+                {-6, 2.5, -15}};
     }
 
 }

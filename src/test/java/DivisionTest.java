@@ -17,8 +17,8 @@ public class DivisionTest {
     }
 
     @Test(dataProvider = "div", description = "Successful division test", priority = 2, invocationCount = 4, threadPoolSize = 2)
-    public void divisionTest(double a, double b) {
-        double expectedResult = a / b;
+    public void divisionTest(double a, double b, double expected) {
+        double expectedResult = expected;
         double actualResult = calculator.division(a, b);
         Assert.assertEquals(actualResult, expectedResult, "Actual result doesn't match the expected one!");
     }
@@ -35,8 +35,8 @@ public class DivisionTest {
     @DataProvider(name = "div")
     public Object[][] div() {
         return new Object[][]{
-                {6, -2.5},
-                {0, 0.33}};
+                {6, -1.5, -4},
+                {0, 0.33, 0}};
     }
 
 }

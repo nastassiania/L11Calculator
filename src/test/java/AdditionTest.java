@@ -17,8 +17,8 @@ public class AdditionTest {
     }
 
     @Test(dataProvider = "add", description = "Successful addition test", priority = 2, invocationCount = 3, threadPoolSize = 3)
-    public void additionTest(double a, double b){
-        double expectedSum = a+b;
+    public void additionTest(double a, double b, double expected){
+        double expectedSum = expected;
         double actualSum = calculator.addition(a,b);
         Assert.assertEquals(actualSum, expectedSum, "Actual sum doesn't match the expected one!");
     }
@@ -35,8 +35,8 @@ public class AdditionTest {
     @DataProvider(name = "add")
     public Object[][] add() {
         return new Object[][]{
-                {10, 10.2},
-                {1, -1}};
+                {10, 10.2, 20.2},
+                {1, -1, 0}};
     }
 
 }

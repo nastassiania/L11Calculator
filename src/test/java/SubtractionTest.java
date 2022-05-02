@@ -17,8 +17,8 @@ public class SubtractionTest {
     }
 
     @Test(dataProvider = "sub", description = "Successful subtraction test", priority = 1, invocationCount = 2, threadPoolSize = 2)
-    public void subtractionTest(double a, double b){
-        double expectedResult = a-b;
+    public void subtractionTest(double a, double b, double expected){
+        double expectedResult = expected;
         double actualResult = calculator.subtraction(a,b);
         Assert.assertEquals(actualResult, expectedResult, "Actual result doesn't match the expected one!");
     }
@@ -35,8 +35,8 @@ public class SubtractionTest {
     @DataProvider(name = "sub")
     public Object[][] sub() {
         return new Object[][]{
-                {24.3, 1.04},
-                {-12, 0}};
+                {24.3, 1.04, 23.26},
+                {-12, 0, -12}};
     }
 
 }
